@@ -1,11 +1,21 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
+import HomescreenImage from '../assets/images/homescreen.svg';
+import { useTheme } from '../theme/ThemeContext';
 
-export default function HomeScreen() {
+type Props = {
+  navigation: any;
+};
+
+export default function HomeScreen({ navigation }: Props) {
+  const theme = useTheme();
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Welcome to My App</Text>
-    </View>
+    <TouchableOpacity
+      style={[styles.container, { backgroundColor: theme.background }]}
+      activeOpacity={1}
+      onPress={() => navigation.navigate('Onboarding')}>
+      <HomescreenImage width={300} height={300} />
+    </TouchableOpacity>
   );
 }
 
@@ -14,9 +24,5 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  title: {
-    fontSize: 24,
-    fontWeight: 'bold',
   },
 });
