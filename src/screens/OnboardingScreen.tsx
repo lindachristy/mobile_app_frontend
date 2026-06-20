@@ -54,11 +54,11 @@ export default function OnboardingScreen({ navigation }: Props) {
   };
 
   const handleSkip = () => {
-    navigation.navigate('Main');
+    navigation.navigate('SignUp');
   };
 
   const handleContinue = () => {
-    navigation.navigate('Main');
+    navigation.navigate('SignUp');
   };
 
   const onScroll = (e: any) => {
