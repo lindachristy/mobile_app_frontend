@@ -1,40 +1,39 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import Image27Svg from "../assets/images/image27.svg";
 import { useTheme } from "../theme/ThemeContext";
 
 type Props = {
   navigation: any;
 };
 
-export default function HomeScreen({ navigation }: Props) {
+export default function CongratulationsScreen({ navigation }: Props) {
   const theme = useTheme();
 
   return (
     <View style={[styles.container, { backgroundColor: theme.background }]}>
-      <TouchableOpacity
-        style={styles.backBtn}
-        onPress={() => navigation.navigate("Onboarding")}
-      >
-        <Text style={[styles.backText, { color: theme.text }]}>Back</Text>
-      </TouchableOpacity>
-
       <View style={styles.content}>
-        <Text style={[styles.heading, { color: theme.text }]}>
-          We wanna know about you
+        <Text style={[styles.congratulationsText, { color: theme.text }]}>
+          Congratulations
         </Text>
-        <Text style={[styles.description, { color: theme.subtext }]}>
-          We would ask a several question for you, just to know about your
-          skills in coding, don't worry this is not affect to your learning
-          journey.
+
+        <Image27Svg width={200} height={200} style={styles.image} />
+
+        <Text style={[styles.levelText, { color: theme.text }]}>
+          You are in the Intermediate level
+        </Text>
+
+        <Text style={[styles.descriptionText, { color: theme.text }]}>
+          We assume that you have a good basic knowledge about coding so you just have to upgrade your skills into advance
         </Text>
       </View>
 
       <TouchableOpacity
         style={[styles.button, { backgroundColor: theme.btnPrimary }]}
-        onPress={() => navigation.navigate("QuestionProgress")}
+        onPress={() => navigation.navigate("Home")}
       >
         <Text style={[styles.buttonText, { color: theme.btnPrimaryText }]}>
-          Let's Go
+          Finish
         </Text>
       </TouchableOpacity>
     </View>
@@ -49,32 +48,38 @@ const styles = StyleSheet.create({
     paddingBottom: 40,
     justifyContent: "space-between",
   },
-  backBtn: {
-    alignSelf: "flex-start",
-  },
-  backText: {
-    fontSize: 16,
-    fontWeight: "600",
-  },
   content: {
-    alignItems: "center",
-    justifyContent: "center",
     flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  heading: {
-    fontSize: 28,
-    fontWeight: "700",
+  congratulationsText: {
+    fontSize: 32,
+    fontWeight: "bold",
+    marginBottom: 40,
     textAlign: "center",
+  },
+  image: {
+    width: 200,
+    height: 200,
+    marginBottom: 30,
+  },
+  levelText: {
+    fontSize: 20,
+    fontWeight: "bold",
     marginBottom: 20,
-  },
-  description: {
-    fontSize: 16,
-    lineHeight: 24,
     textAlign: "center",
-    maxWidth: 340,
+  },
+  descriptionText: {
+    fontSize: 16,
+    textAlign: "center",
+    lineHeight: 24,
+    paddingHorizontal: 20,
   },
   button: {
     width: "100%",
+    maxWidth: 340,
+    alignSelf: "center",
     paddingVertical: 14,
     borderRadius: 50,
     alignItems: "center",

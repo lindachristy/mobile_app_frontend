@@ -75,7 +75,7 @@ export default function SignInScreen({ navigation }: Props) {
             </View>
             <Text style={[styles.rememberTxt, { color: theme.subtext }]}>Remember me</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
             <Text style={[styles.forgotTxt, { color: theme.btnPrimary }]}>Forgot password</Text>
           </TouchableOpacity>
         </View>
